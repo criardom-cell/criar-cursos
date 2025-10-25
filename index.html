@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Cursos UNIT</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+      color: #222;
+      overflow: hidden;
+    }
+
+    /* Barras laterais e superior/inferior */
+    .toolbar {
+      background-color: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+    }
+
+    .toolbar-left {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+    }
+
+    .toolbar-right {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+    }
+
+    .toolbar-top {
+      position: fixed;
+      top: 0;
+      left: 80px;
+      right: 80px;
+      height: 60px;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .toolbar-bottom {
+      position: fixed;
+      bottom: 0;
+      left: 80px;
+      right: 80px;
+      height: 70px;
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: #111;
+      color: white;
+    }
+
+    button {
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px;
+      margin: 5px;
+      cursor: pointer;
+      width: 70%;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    /* Área principal */
+    .main-area {
+      position: absolute;
+      top: 60px;
+      bottom: 70px;
+      left: 80px;
+      right: 80px;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    video {
+      max-width: 80%;
+      max-height: 60%;
+      border: 3px solid #000;
+      border-radius: 10px;
+      background-color: black;
+    }
+
+    .timeline {
+      width: 80%;
+      height: 40px;
+      background-color: #ddd;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barras laterais -->
+  <div class="toolbar toolbar-left">
+    <button onclick="addText()">🅰 Texto</button>
+    <button onclick="addImage()">🖼 Imagem</button>
+    <button onclick="cutVideo()">✂️ Cortar</button>
+  </div>
+
+  <div class="toolbar toolbar-right">
+    <button onclick="uploadVideo()">🎞 Escolher vídeo</button>
+    <button onclick="saveProject()">💾 Salvar</button>
+    <button onclick="help()">❓Ajuda</button>
+  </div>
+
+  <!-- Barras superior e inferior -->
+  <div class="toolbar toolbar-top">
+    <h2>🎬 Editor de Cursos UNIT</h2>
+  </div>
+
+  <div class="toolbar toolbar-bottom">
+    <div class="timeline">🎞 Linha do tempo (edição)</div>
+  </div>
+
+  <!-- Área principal -->
+  <div class="main-area">
+    <video id="videoPlayer" controls></video>
+    <input type="file" id="fileInput" accept="video/*" style="display:none">
+  </div>
+
+  <script>
+    const fileInput = document.getElementById('fileInput');
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    function uploadVideo() {
+      fileInput.click();
+    }
+
+    fileInput.addEventListener('change', function() {
+      const file = fileInput.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        videoPlayer.src = url;
+      }
+    });
+
+    function addText() {
+      alert("🅰 Ferramenta de texto ainda em construção!");
+    }
+
+    function addImage() {
+      alert("🖼 Ferramenta de imagem ainda em construção!");
+    }
+
+    function cutVideo() {
+      alert("✂️ Função de cortar vídeo será adicionada em breve!");
+    }
+
+    function saveProject() {
+      alert("💾 Projeto salvo (simulação)!");
+    }
+
+    function help() {
+      alert("❓ Bem-vindo ao Editor de Cursos UNIT! Aqui você poderá enviar vídeos, cortar, adicionar texto e muito mais em breve!");
+    }
+  </script>
+
+</body>
+</html>
 
